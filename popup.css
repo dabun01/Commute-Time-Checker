@@ -6,7 +6,7 @@ body {
 }
 h1 { font-size: 18px; margin: 0 0 12px; }
 label { display: block; font-size: 12px; color: #555; margin-bottom: 4px; }
-input {
+input[type="text"] {
   width: 100%;
   box-sizing: border-box;
   padding: 8px;
@@ -15,3 +15,165 @@ input {
   border-radius: 8px;
 }
 small { display: block; margin-top: 4px; color: #888; font-size: 11px; }
+.muted { color: #888; font-size: 12px; margin: 4px 0; }
+
+/* ---------- saved places ---------- */
+.places { margin-top: 16px; }
+.places-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+h2 { font-size: 14px; margin: 0; }
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #1a5fb4;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.link-btn:hover { text-decoration: underline; }
+
+#place-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pill {
+  padding: 8px 8px 8px 12px;
+  background: #fff;
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+}
+.pill-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pill-icon { font-size: 18px; line-height: 1; }
+.pill-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pill-distance { font-size: 14px; color: #333; white-space: nowrap; margin-right: 4px; }
+
+.pill-times {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 6px 0 2px 26px;   /* line up under the name, past the icon */
+}
+.time-label { display: block; font-size: 11px; color: #555; letter-spacing: 0.03em; }
+.time-value {
+  display: block;
+  font-size: 24px;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+.time-value.pending { color: #999; font-size: 16px; line-height: 28px; }
+.pill-btn {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: #111;
+  cursor: pointer;
+}
+.pill-btn:hover { background: rgba(0, 0, 0, 0.08); }
+
+/* ---------- add / edit form ---------- */
+#place-form fieldset {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 10px 12px 12px;
+  margin: 8px 0 0;
+}
+#place-form legend { font-size: 13px; font-weight: 600; padding: 0 4px; }
+#place-form label { margin-top: 8px; }
+
+/* ---------- name autocomplete (Google-style) ---------- */
+.autocomplete { position: relative; }
+#place-suggestions {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+#place-suggestions li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-top: 1px solid #e6e6e6;
+  cursor: pointer;
+  font-size: 13px;
+}
+#place-suggestions li:first-child { border-top: none; }
+#place-suggestions li[aria-selected="true"],
+#place-suggestions li:hover { background: #ebebeb; }
+#place-suggestions .pin { display: grid; color: #9e9e9e; flex: none; }
+#place-suggestions .text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#place-suggestions .main { color: #000; }
+#place-suggestions .main b { font-weight: 700; }
+#place-suggestions .secondary { color: #707070; font-size: 12px; }
+#place-suggestions .status { color: #888; font-size: 12px; cursor: default; }
+#place-suggestions .status:hover { background: none; }
+
+.icon-picker {display: flex; flex-wrap: wrap; gap: 4px; }
+.icon-picker label { margin: 0; cursor: pointer; }
+.icon-picker input { position: absolute; opacity: 0; pointer-events: none; }
+.icon-picker span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.icon-picker input:checked + span { background: #d6e3f2; border-color: #1f1f1f; }
+.icon-picker input:focus-visible + span { outline: 2px solid #1a5fb4; }
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.form-actions button {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.secondary { background: #fff; border: 1px solid #ccc; }
+.primary { background: #1a5fb4; color: #fff; border: 1px solid #1a5fb4; }
+.pill-btn.delete:hover { color: #d93025; background: #fce8e6; }

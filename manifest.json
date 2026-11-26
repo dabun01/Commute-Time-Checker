@@ -11,5 +11,8 @@
     "service_worker": "background.js"
   },
   "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["https://routes.googleapis.com/*"]
+  "host_permissions": [
+    "https://routes.googleapis.com/*",
+    "https://places.googleapis.com/*"
+  ]
 }

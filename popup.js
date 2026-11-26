@@ -21,6 +21,8 @@ try {
   } else {
     addressInput.placeholder = "No address found. Type one in.";
   }
+  // Let places.js know the address is ready so it can fetch drive times
+  addressInput.dispatchEvent(new Event("change"));
 } catch (err) {
   console.error(err);
   addressInput.placeholder = "Can't read this page. Type an address.";

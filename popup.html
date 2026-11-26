@@ -14,6 +14,42 @@
       <small id="source"></small>
     </section>
 
+    <section class="places">
+      <div class="places-header">
+        <h2>Saved places</h2>
+        <button id="add-place" type="button" class="link-btn">+ Add place</button>
+      </div>
+
+      <ul id="place-list"></ul>
+      <p id="places-empty" class="muted">No saved places yet. Add work, church, the gym…</p>
+
+      <form id="place-form" hidden>
+        <fieldset>
+          <legend>New place</legend>
+
+          <label for="place-name">Name</label>
+          <div class="autocomplete">
+            <input id="place-name" type="text" placeholder="Start typing a place…" required
+                   autocomplete="off" role="combobox" aria-autocomplete="list"
+                   aria-controls="place-suggestions" aria-expanded="false" />
+            <ul id="place-suggestions" role="listbox" hidden></ul>
+          </div>
+
+          <label>Icon</label>
+          <div id="icon-picker" class="icon-picker"></div>
+
+          <label for="place-address">Address</label>
+          <input id="place-address" type="text" placeholder="123 Main St, City, ST 12345" required />
+
+          <div class="form-actions">
+            <button id="place-cancel" type="button" class="secondary">Cancel</button>
+            <button type="submit" class="primary">Save</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
     <script type="module" src="popup.js"></script>
+    <script type="module" src="places.js"></script>
   </body>
 </html>
